@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int receberOpcao(String opcoes, int opcoesQuantidade, Scanner sc) {
+        System.out.printf("%s\n> ", opcoes);
+        int opcao = sc.nextInt();
+
+        while (opcao < 1 || opcao > opcoesQuantidade) {
+            System.out.println("Opção inválida!");
+
+            System.out.printf("%s\n> ", opcoes);
+            opcao = sc.nextInt();
+        }
+
+        return opcao;
+    }
+
+    public static int receberIdade(Scanner sc) {
+        System.out.print("Idade: ");
+        return sc.nextInt();
+    }
+
+    public static boolean isIndividuoValido(int sexo, int idade, int corDosOlhos, int corDosCabelos) {
+        return sexo == 2 && idade >= 18 && idade <= 35 && corDosOlhos == 2 && corDosCabelos == 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int idade = receberIdade(sc), maiorIdade = idade, menorIdade = idade, individuosValidos = 0;
+
+        while (idade != -1) {
+            if (idade > maiorIdade) maiorIdade = idade;
+            else if (idade < menorIdade) menorIdade = idade;
+
+            int sexo = receberOpcao("Sexo:\n1) Masculino\n2) Feminino", 2, sc),
+                    corDosOlhos = receberOpcao("Cor dos olhos:\n1) Azuis\n2) Verdes\n3) Castanhos", 3, sc),
+                    corDosCabelos = receberOpcao("Cor dos cabelos:\n1) Louros\n2) Castanhos\n3) Pretos", 3, sc);
+
+            if (isIndividuoValido(sexo, idade, corDosOlhos, corDosCabelos)) individuosValidos++;
+
+            idade = receberIdade(sc);
+        }
+
+        System.out.printf(
+                "Maior idade: %d\nMenor idade: %d\nQuantidade de indivíduos válidos: %d",
+                maiorIdade,
+                menorIdade,
+                individuosValidos
+        );
+    }
+}
