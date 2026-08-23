@@ -37,9 +37,9 @@ public class Main {
         int[] valores = new int[3];
 
         System.out.print("Digite 3 valores inteiros(x, y, z): ");
-            valores[0] = sc.nextInt();
-            valores[1] = sc.nextInt();
-            valores[2] = sc.nextInt();
+        valores[0] = sc.nextInt();
+        valores[1] = sc.nextInt();
+        valores[2] = sc.nextInt();
 
         System.out.printf(
                 "Maior valor: %d\nMenor valor: %d\nO valor x(%d) está dentro do intervalo y, z(%d, %d)?: %b\nO valor x(%d) é divisível por y(%d)?: %b\nO valor x(%d) é divisível por z(%d)?: %b",
