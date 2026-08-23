@@ -9,7 +9,7 @@ public class Main {
         for (int i = 0; i < valores.length; i++) {
             float valorTotal = valores[i] * vendidos[i];
 
-            relatorio.append("Objeto ").append(i + 1).append(":\n")
+            relatorio.append("Relatório do Objeto ").append(i + 1).append(":\n")
                     .append("\tValor Unitário: R$").append(valores[i]).append("\n")
                     .append("\tQuantidade vendida: ").append(vendidos[i]).append("\n")
                     .append("\tValor total: R$").append(valorTotal).append("\n");
@@ -19,8 +19,7 @@ public class Main {
 
         float valorComissao = (valorGeral / 100) * 5;
 
-        relatorio.append("\n")
-                .append("Valor geral: R$").append(valorGeral).append("\n")
+        relatorio.append("Valor geral: R$").append(valorGeral).append("\n")
                 .append("Valor da comissão: R$").append(valorComissao);
 
         return relatorio;
@@ -61,18 +60,22 @@ public class Main {
         int[] vendidos = new int[10];
 
         for (int i = 0; i < valores.length; i++) {
-            System.out.printf("Digite o valor do objeto %d: R$", i + 1);
+            System.out.printf("Objeto %d\n", i + 1);
+            System.out.print("\tValor : R$");
             valores[i] = sc.nextFloat();
 
-            System.out.printf("Digite a quantidade vendida do objeto %d: ", i + 1);
+            System.out.print("\tQuantidade vendida: ");
             vendidos[i] = sc.nextInt();
         }
 
         var relatorio = gerarRelatorio(valores, vendidos);
+
         var maisVendidoValor = encontrarMaisVendidoValor(valores, vendidos);
+
         var maisVendidoPosicao = encontrarMaisVendidoPosicao(vendidos);
+
         System.out.printf(
-                "%s\n\nValor do objeto mais vendido: R$%.2f\nPosição no vetor do objeto mais vendido: %d",
+                "\n%s\n\nValor do objeto mais vendido: R$%.2f\nPosição no vetor do objeto mais vendido: %d",
                 relatorio,
                 maisVendidoValor,
                 maisVendidoPosicao
