@@ -41,7 +41,7 @@ public class Main {
 
     public static StringBuilder gerarRelatorioPares(int[] numeros, int[] paresPosicoes) {
         StringBuilder relatorioPares = new StringBuilder();
-        relatorioPares.append("Os números pares são:\n");
+        relatorioPares.append("Números pares:\n");
 
         int paresSoma = 0;
 
@@ -58,7 +58,7 @@ public class Main {
 
     public static StringBuilder gerarRelatorioImpares(int[] numeros, int[] imparesPosicoes) {
         StringBuilder relatorioImpares = new StringBuilder();
-        relatorioImpares.append("Os números ímpares são:\n");
+        relatorioImpares.append("Números ímpares:\n");
 
         for (int imparesPosicao : imparesPosicoes) {
             relatorioImpares.append("\tnúmero ").append(numeros[imparesPosicao]).append(" na posição ").append(imparesPosicao).append("\n");
@@ -85,6 +85,6 @@ public class Main {
         var paresRelatorio = gerarRelatorioPares(numeros, paresPosicoes);
         var imparesRelatorio = gerarRelatorioImpares(numeros, imparesPosicoes);
 
-        System.out.printf("%s\n\n%s", paresRelatorio, imparesRelatorio);
+        System.out.printf("\n%s\n\n%s", paresRelatorio, imparesRelatorio);
     }
 }
