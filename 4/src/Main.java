@@ -63,12 +63,12 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Vetor X");
-        String[] vetorX = receberElementos(sc);
+        var vetorX = receberElementos(sc);
 
         System.out.println("\nVetor Y");
-        String[] vetorY = receberElementos(sc);
+        var vetorY = receberElementos(sc);
 
-        String[] vetorZ = unirVetores(vetorX, vetorY);
+        var vetorZ = unirVetores(vetorX, vetorY);
 
         System.out.printf("\nUnião dos vetores X e Y: %s", Arrays.toString(vetorZ));
     }
