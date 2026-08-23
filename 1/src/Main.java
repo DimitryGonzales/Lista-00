@@ -9,6 +9,6 @@ public class Main {
         System.out.print("Digite um número para calcular o seu fatorial: ");
         int valor = sc.nextInt();
 
-        System.out.printf("Fatorial de %d = %d", valor, fatorial(valor));
+        System.out.printf("\nFatorial de %d = %d", valor, fatorial(valor));
     }
 }
