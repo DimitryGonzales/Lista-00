@@ -17,10 +17,19 @@ public class Main {
 
     public static int receberIdade(Scanner sc) {
         System.out.print("Idade: ");
-        return sc.nextInt();
+        int idade = sc.nextInt();
+
+        while (idade < -1) {
+            System.out.println("A idade não pode ser um valor negativo!");
+
+            System.out.print("Idade: ");
+            idade = sc.nextInt();
+        }
+
+        return idade;
     }
 
-    public static boolean isIndividuoValido(int sexo, int idade, int corDosOlhos, int corDosCabelos) {
+    public static boolean ehIndividuoValido(int sexo, int idade, int corDosOlhos, int corDosCabelos) {
         return sexo == 2 && idade >= 18 && idade <= 35 && corDosOlhos == 2 && corDosCabelos == 1;
     }
 
@@ -37,13 +46,13 @@ public class Main {
                     corDosOlhos = receberOpcao("Cor dos olhos:\n1) Azuis\n2) Verdes\n3) Castanhos", 3, sc),
                     corDosCabelos = receberOpcao("Cor dos cabelos:\n1) Louros\n2) Castanhos\n3) Pretos", 3, sc);
 
-            if (isIndividuoValido(sexo, idade, corDosOlhos, corDosCabelos)) individuosValidos++;
+            if (ehIndividuoValido(sexo, idade, corDosOlhos, corDosCabelos)) individuosValidos++;
 
             idade = receberIdade(sc);
         }
 
         System.out.printf(
-                "Maior idade: %d\nMenor idade: %d\nQuantidade de indivíduos válidos: %d",
+                "\nMaior idade: %d\nMenor idade: %d\nQuantidade de indivíduos válidos: %d",
                 maiorIdade,
                 menorIdade,
                 individuosValidos
