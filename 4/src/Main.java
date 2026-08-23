@@ -2,54 +2,59 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static int[] receberElementos(Scanner sc) {
-        System.out.print("Digite a quantiade de elementos: ");
+    public static String[] receberElementos(Scanner sc) {
+        System.out.print("\tDigite a quantiade de elementos: ");
         int elementosQuantidade = sc.nextInt();
 
-        int[] elementos = new int[elementosQuantidade];
+        String[] elementos = new String[elementosQuantidade];
 
         for (int i = 0; i < elementosQuantidade; i++) {
-            System.out.printf("Digite o elemento %d: ", i + 1);
-            elementos[i] = sc.nextInt();
+            System.out.printf("\tElemento %d: ", i + 1);
+            elementos[i] = sc.next();
         }
 
         return elementos;
     }
 
-    public static int[] unirVetores(int[] vetorX, int[] vetorY) {
-        int[] vetorMaior, vetorMenor;
+    public static boolean estaIncluido(String elemento, String[] elementos) {
+        boolean incluido = false;
 
-        if (vetorX.length > vetorY.length) {
-            vetorMaior = vetorX;
-            vetorMenor = vetorY;
-        } else {
-            vetorMaior = vetorY;
-            vetorMenor = vetorX;
-        }
-
-        int[] vetorZ = new int[vetorMenor.length];
-
-        int vetorZIndice = 0;
-
-        for (int i = 0; i < vetorMenor.length; i++) {
-            boolean elementoRepetido = false;
-
-            for (int j = 0; j < vetorMaior.length; j++) {
-                if (vetorMenor[i] == vetorMaior[j]) {
-                    for (int k = 0; k < vetorZ.length; k++) {
-                        if (vetorMenor[i] == vetorZ[k]) {
-                            elementoRepetido = true;
-                            break;
-                        }
-                    }
-
-                    if (!elementoRepetido) vetorZ[vetorZIndice] = vetorMenor[i];
-                    vetorZIndice++;
-                }
-
-                elementoRepetido = false;
+        for (String elementoAtual : elementos) {
+            if (elemento.equals(elementoAtual)) {
+                incluido = true;
+                break;
             }
         }
+
+        return incluido;
+    }
+
+    public static String[] unirVetores(String[] vetorX, String[] vetorY) {
+        String[] uniao = new String[vetorX.length + vetorY.length];
+
+        int uniaoIndice = 0;
+
+        for (String elemento : vetorX) {
+            if (!estaIncluido(elemento, uniao)) {
+                uniao[uniaoIndice] = elemento;
+                uniaoIndice++;
+            }
+        }
+
+        for (String elemento : vetorY) {
+            if (!estaIncluido(elemento, uniao)) {
+                uniao[uniaoIndice] = elemento;
+                uniaoIndice++;
+            }
+        }
+
+        int uniaoValidos = 0;
+
+        for (String elemento : uniao) if (elemento != null) uniaoValidos++;
+
+        String[] vetorZ = new String[uniaoValidos];
+
+        for (int i = 0; i < vetorZ.length; i++) vetorZ[i] = uniao[i];
 
         return vetorZ;
     }
@@ -58,16 +63,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Vetor X:");
-        int[] vetorX = receberElementos(sc);
+        String[] vetorX = receberElementos(sc);
 
-        System.out.println("Vetor Y:");
-        int[] vetorY = receberElementos(sc);
+        System.out.println("\nVetor Y:");
+        String[] vetorY = receberElementos(sc);
 
-        int[] vetorZ = unirVetores(vetorX, vetorY);
+        String[] vetorZ = unirVetores(vetorX, vetorY);
 
-        System.out.printf(
-                "Vetor união de X e Y: %s",
-                Arrays.toString(vetorZ)
-        );
+        System.out.printf("\nUnião dos vetores X e Y: %s", Arrays.toString(vetorZ));
     }
 }
