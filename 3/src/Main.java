@@ -19,10 +19,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Programação Modular");
-        int[] matriculasProgMod = receberMatriculas(sc);
+        var matriculasProgMod = receberMatriculas(sc);
 
         System.out.println("\nCálculo");
-        int[] matriculasCalculo = receberMatriculas(sc);
+        var matriculasCalculo = receberMatriculas(sc);
 
         System.out.print("\nMatriculas presentes em ambas as disciplinas: ");
         for (int matriculaProgMod : matriculasProgMod) {
