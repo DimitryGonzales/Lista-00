@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int encontrarValorMaior(int[] valores) {
+    public static int encontrarMaiorValor(int[] valores) {
         int valorMenor = valores[0];
 
         for (int i = 1; i < valores.length; i++)
@@ -10,7 +10,7 @@ public class Main {
         return valorMenor;
     }
 
-    public static int encontrarValorMenor(int[] valores) {
+    public static int encontrarMenorValor(int[] valores) {
         int valorMenor = valores[0];
 
         for (int i = 1; i < valores.length; i++)
@@ -19,27 +19,17 @@ public class Main {
         return valorMenor;
     }
 
-    public static boolean xDentroIntervaloYZ(int[] valores) {
-        int intervaloYZMenor, intervaloYZMaior;
-
-        if (valores[1] < valores[2]) {
-            intervaloYZMenor = valores[1];
-            intervaloYZMaior = valores[2];
-        } else {
-            intervaloYZMenor = valores[2];
-            intervaloYZMaior = valores[1];
+    public static boolean estaDentroIntervalo(int valor, int inicio, int fim) {
+        if (inicio > fim) {
+            int temp = inicio;
+            inicio = fim;
+            fim = temp;
         }
 
-        return valores[0] >= intervaloYZMenor && valores[0] <= intervaloYZMaior;
+        return valor >= inicio && valor <= fim;
     }
 
-    public static boolean xDivisivelY(int[] valores) {
-        return valores[0] % valores[1] == 0;
-    }
-
-    public static boolean xDivisivelZ(int[] valores) {
-        return valores[0] % valores[2] == 0;
-    }
+    public static boolean ehDivisivel(int dividendo, int divisor) { return dividendo % divisor == 0; }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -52,12 +42,12 @@ public class Main {
             valores[2] = sc.nextInt();
 
         System.out.printf(
-                "Maior valor: %d\nMenor valor: %d\nO valor x está dentro do intervalo (y, z)?: %b\nO valor x é divisível por y?: %b\nO valor x é divisível por z?: %b",
-                encontrarValorMaior(valores),
-                encontrarValorMenor(valores),
-                xDentroIntervaloYZ(valores),
-                xDivisivelY(valores),
-                xDivisivelZ(valores)
+                "Maior valor: %d\nMenor valor: %d\nO valor x(%d) está dentro do intervalo y, z(%d, %d)?: %b\nO valor x(%d) é divisível por y(%d)?: %b\nO valor x(%d) é divisível por z(%d)?: %b",
+                encontrarMaiorValor(valores),
+                encontrarMenorValor(valores),
+                valores[0], valores[1], valores[2], estaDentroIntervalo(valores[0], valores[1], valores[2]),
+                valores[0], valores[1], ehDivisivel(valores[0], valores[1]),
+                valores[0], valores[2], ehDivisivel(valores[0], valores[2])
         );
 
         sc.close();
