@@ -46,8 +46,8 @@ public class Main {
             temperaturas[i] = sc.nextInt();
         }
 
-        int[] temperaturaMaiorMes = encontrarMaiorTemperatura(temperaturas);
-        int[] temperaturaMenorMes = encontrarMenorTemperatura(temperaturas);
+        var temperaturaMaiorMes = encontrarMaiorTemperatura(temperaturas);
+        var temperaturaMenorMes = encontrarMenorTemperatura(temperaturas);
 
         System.out.printf(
                 "\nMaior temperatura: %d° - %s\nMenor temperatura: %d° - %s",
