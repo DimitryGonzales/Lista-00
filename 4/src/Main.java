@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static String[] receberElementos(Scanner sc) {
-        System.out.print("\tDigite a quantiade de elementos: ");
+        System.out.print("\tQuantiade de elementos: ");
         int elementosQuantidade = sc.nextInt();
 
         String[] elementos = new String[elementosQuantidade];
@@ -62,10 +62,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Vetor X:");
+        System.out.println("Vetor X");
         String[] vetorX = receberElementos(sc);
 
-        System.out.println("\nVetor Y:");
+        System.out.println("\nVetor Y");
         String[] vetorY = receberElementos(sc);
 
         String[] vetorZ = unirVetores(vetorX, vetorY);
