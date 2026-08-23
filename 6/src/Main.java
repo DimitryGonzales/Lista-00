@@ -38,9 +38,9 @@ public class Main {
             gabarito[i] = sc.nextInt();
         }
 
-        int[][] alunos = gerarAlunos(gabarito, sc);
+        var alunos = gerarAlunos(gabarito, sc);
 
-        float aprovacaoPorcentagem = calcularAprovacao(alunos);
+        var aprovacaoPorcentagem = calcularAprovacao(alunos);
 
         for (int[] aluno : alunos) System.out.printf("Nota do aluno %d: %d\n", aluno[0], aluno[1]);
 
