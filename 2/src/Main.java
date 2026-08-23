@@ -42,7 +42,7 @@ public class Main {
         valores[2] = sc.nextInt();
 
         System.out.printf(
-                "Maior valor: %d\nMenor valor: %d\nO valor x(%d) está dentro do intervalo y, z(%d, %d)?: %b\nO valor x(%d) é divisível por y(%d)?: %b\nO valor x(%d) é divisível por z(%d)?: %b",
+                "\nMaior valor: %d\nMenor valor: %d\nO valor x(%d) está dentro do intervalo y, z(%d, %d)?: %b\nO valor x(%d) é divisível por y(%d)?: %b\nO valor x(%d) é divisível por z(%d)?: %b",
                 encontrarMaiorValor(valores),
                 encontrarMenorValor(valores),
                 valores[0], valores[1], valores[2], estaDentroIntervalo(valores[0], valores[1], valores[2]),
