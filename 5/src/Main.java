@@ -36,7 +36,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int idade = receberIdade(sc), maiorIdade = idade, menorIdade = idade, individuosValidos = 0;
+        var idade = receberIdade(sc);
+
+        int maiorIdade = idade, menorIdade = idade, individuosValidos = 0;
 
         while (idade != -1) {
             if (idade > maiorIdade) maiorIdade = idade;
