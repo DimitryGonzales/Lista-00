@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Main {
     public static int encontrarMaiorValor(int[] valores) {
-        int valorMenor = valores[0];
+        int valorMaior = valores[0];
 
         for (int i = 1; i < valores.length; i++)
-            if (valores[i] > valorMenor) valorMenor = valores[i];
+            if (valores[i] > valorMaior) valorMaior = valores[i];
 
-        return valorMenor;
+        return valorMaior;
     }
 
     public static int encontrarMenorValor(int[] valores) {
